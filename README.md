@@ -11,7 +11,7 @@ A complete end-to-end Business Intelligence project built using **Power BI Deskt
 │
 ├── 📄 README.md                    ← You are here
 ├── 📊 fact_Sales_Raw.xlsx          ← Source data file (raw transactions)
-└── 📈 Sales_Data.pbix         ← Power BI Dashboard file
+└── 📈 Sales_Data.pbix              ← Power BI Dashboard file
 ```
 
 ---
