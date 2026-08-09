@@ -11,7 +11,7 @@ A complete end-to-end Business Intelligence project built using **Power BI Deskt
 │
 ├── 📄 README.md                    ← You are here
 ├── 📊 fact_Sales_Raw.xlsx          ← Source data file (raw transactions)
-└── 📈 Sales_Dashboard.pbix         ← Power BI Dashboard file
+└── 📈 Sales_Data.pbix         ← Power BI Dashboard file
 ```
 
 ---
@@ -95,7 +95,7 @@ The data was designed with embedded story elements to make analysis meaningful:
 
 ---
 
-### Step 1 — Load the Source File
+### Step 1 - Load the Source File
 
 1. Open Power BI Desktop
 2. Click **Home → Get Data → Excel Workbook**
@@ -105,7 +105,7 @@ The data was designed with embedded story elements to make analysis meaningful:
 
 ---
 
-### Step 2 — Fix the Date Column
+### Step 2 - Fix the Date Column
 
 In Power Query Editor with `fact_Sales_Raw` selected:
 
@@ -116,7 +116,7 @@ In Power Query Editor with `fact_Sales_Raw` selected:
 
 ---
 
-### Step 3 — Create Dimension Tables
+### Step 3 - Create Dimension Tables
 
 For each dimension table below, follow this pattern:
 - Right-click `fact_Sales_Raw` in the left panel → **Duplicate**
@@ -144,7 +144,7 @@ Add key: `RegionKey`
 
 ---
 
-### Step 4 — Add Foreign Keys to fact_Sales
+### Step 4 - Add Foreign Keys to fact_Sales
 
 For each dimension table, merge it back into the fact table:
 
@@ -160,7 +160,7 @@ Click **Home → Close & Apply**
 
 ---
 
-### Step 5 — Create dim_Date Using DAX
+### Step 5 - Create dim_Date Using DAX
 
 In Power BI Desktop:
 
@@ -189,7 +189,7 @@ ADDCOLUMNS(
 
 ---
 
-### Step 6 — Create dim_Target Using DAX
+### Step 6 - Create dim_Target Using DAX
 
 **Modeling → New Table**:
 
@@ -222,7 +222,7 @@ YearMonth = dim_Target[Year] * 100 + dim_Target[Month]
 
 ---
 
-### Step 7 — Build Relationships in Model View
+### Step 7 - Build Relationships in Model View
 
 Click the **Model View** icon (third icon on left sidebar).
 
@@ -239,7 +239,7 @@ Drag and drop to create these relationships:
 
 ---
 
-### Step 8 — Fix Sort Order for Date Columns
+### Step 8 - Fix Sort Order for Date Columns
 
 In the Fields panel, for each column below:
 1. Click the column
@@ -254,7 +254,7 @@ In the Fields panel, for each column below:
 
 ---
 
-### Step 9 — Create a Measures Table
+### Step 9 - Create a Measures Table
 
 **Modeling → New Table**:
 
@@ -351,80 +351,80 @@ RETURN IF(yr1 <> 0, POWER(DIVIDE(yr3, yr1, 0), 1/2) - 1, BLANK())
 
 ## 📊 Dashboard Pages
 
-### Page 1 — Executive Summary
+### Page 1 - Executive Summary
 
 **Purpose:** High-level overview of overall business health.
 
 **Visuals:**
-- 5 KPI Cards — Total Revenue, Gross Profit, Gross Profit Margin %, Target Achievement %, Return Rate %
-- Line Chart — Revenue vs Target by Month/Year
-- Bar Chart — Total Revenue by Region
-- Table — Top 10 Products with Revenue, Gross Profit Margin % and Return Rate %
-- Slicers — Year (dropdown), MonthName (dropdown)
+- 5 KPI Cards : Total Revenue, Gross Profit, Gross Profit Margin %, Target Achievement %, Return Rate %
+- Line Chart : Revenue vs Target by Month/Year
+- Bar Chart : Total Revenue by Region
+- Table : Top 10 Products with Revenue, Gross Profit Margin % and Return Rate %
+- Slicers : Year (dropdown), MonthName (dropdown)
 
 **Key Insight:** Revenue grew consistently across 3 years with clear Q4 seasonality. Target achievement at 76.3% indicates room for improvement.
 
 ---
 
-### Page 2 — Sales Performance
+### Page 2 - Sales Performance
 
 **Purpose:** Evaluate individual and team sales performance.
 
 **Visuals:**
-- 4 KPI Cards — Total Revenue, Target Revenue, Target Achievement %, Avg Order Value
-- Table — Salesperson Leaderboard with data bars and Revenue Rank
-- Column Chart — Revenue by Salesperson Team
-- Bar Chart — Discount Impact by Salesperson
-- Slicers — Year, MonthName
+- 4 KPI Cards : Total Revenue, Target Revenue, Target Achievement %, Avg Order Value
+- Table : Salesperson Leaderboard with data bars and Revenue Rank
+- Column Chart : Revenue by Salesperson Team
+- Bar Chart : Discount Impact by Salesperson
+- Slicers : Year, MonthName
 
 **Key Insight:** South team (Rahul Mehta, Sneha Iyer) has the highest discount impact but the lowest revenue ranking — discounting is not converting to sales performance.
 
 ---
 
-### Page 3 — Customer Intelligence
+### Page 3 - Customer Intelligence
 
 **Purpose:** Understand customer segments, geography and revenue concentration.
 
 **Visuals:**
-- 4 KPI Cards — Total Customers, Revenue per Customer, Total Revenue, Return Rate %
-- Donut Chart — Revenue by Customer Segment
-- Table — Top 10 Customers with Revenue, Gross Profit Margin %, Return Rate %
-- Map — Revenue bubbles by Customer City
-- Line Chart — Revenue trend by Customer Segment (2022–2024)
-- Slicers — Year, CustomerSegment
+- 4 KPI Cards : Total Customers, Revenue per Customer, Total Revenue, Return Rate %
+- Donut Chart : Revenue by Customer Segment
+- Table : Top 10 Customers with Revenue, Gross Profit Margin %, Return Rate %
+- Map : Revenue bubbles by Customer City
+- Line Chart : Revenue trend by Customer Segment (2022–2024)
+- Slicers : Year, CustomerSegment
 
 **Key Insight:** B2B segment drives 51.47% of revenue. Top 10 customers account for 36% of total revenue — a concentration risk that needs active diversification.
 
 ---
 
-### Page 4 — Product Analysis
+### Page 4 - Product Analysis
 
 **Purpose:** Analyse product profitability, volume and return rates.
 
 **Visuals:**
-- 4 KPI Cards — Total Revenue, Gross Profit Margin %, Return Rate %, Discount Impact
-- Stacked Bar / Donut — Revenue by Product Category
-- Table — Revenue and Margin by Product with conditional formatting
-- Bar Chart — Revenue by Product Name
-- Column Chart — Units Sold by Category
-- Bar Chart — Return Rate by Category (color coded)
-- Slicers — Year, MonthName
+- 4 KPI Cards : Total Revenue, Gross Profit Margin %, Return Rate %, Discount Impact
+- Stacked Bar / Donut : Revenue by Product Category
+- Table : Revenue and Margin by Product with conditional formatting
+- Bar Chart : Revenue by Product Name
+- Column Chart : Units Sold by Category
+- Bar Chart : Return Rate by Category (color coded)
+- Slicers : Year, MonthName
 
 **Key Insight:** Hardware drives 84.6% of revenue but Software has 70%+ gross margin. Shifting sales focus toward Software would significantly improve overall profitability.
 
 ---
 
-### Page 5 — Trends & Time Analysis
+### Page 5 - Trends & Time Analysis
 
 **Purpose:** Understand growth trends, seasonality and year-over-year patterns.
 
 **Visuals:**
-- 5 KPI Cards — Total Revenue, Revenue YoY %, Revenue MTD, Revenue YTD, Revenue CAGR
-- Line Chart — Year over Year comparison (2022, 2023, 2024 as 3 separate lines)
-- Matrix / Heatmap — Revenue by Year × Month (gradient color)
-- Bar Chart — Revenue MTD vs Revenue LY by Month
-- Column Chart — Quarterly Revenue by Year
-- Slicers — MonthName, Year
+- 5 KPI Cards : Total Revenue, Revenue YoY %, Revenue MTD, Revenue YTD, Revenue CAGR
+- Line Chart : Year over Year comparison (2022, 2023, 2024 as 3 separate lines)
+- Matrix / Heatmap : Revenue by Year × Month (gradient color)
+- Bar Chart : Revenue MTD vs Revenue LY by Month
+- Column Chart : Quarterly Revenue by Year
+- Slicers : MonthName, Year
 
 **Key Insight:** 14.7% CAGR over 3 years confirms consistent growth. October, November and December are peak months every single year — confirmed by both the heatmap and quarterly chart.
 
@@ -445,12 +445,12 @@ RETURN IF(yr1 <> 0, POWER(DIVIDE(yr3, yr1, 0), 1/2) - 1, BLANK())
 
 ## 🚀 Future Course of Action
 
-1. **Fix South Region** — Implement discount approval process and rep coaching program
-2. **Invest in Software** — Realign incentives and training to grow Software revenue share to 25%+
-3. **Diversify Customer Base** — No single customer should exceed 10% of total revenue
-4. **Investigate Mobile Returns** — Escalate to product team for quality or expectation review
-5. **Protect Q4 Pipeline** — Start pipeline building in August every year
-6. **Monitor Weekly** — Executive Summary reviewed every Monday, Sales Performance every Friday
+1. **Fix South Region** : Implement discount approval process and rep coaching program
+2. **Invest in Software** : Realign incentives and training to grow Software revenue share to 25%+
+3. **Diversify Customer Base** : No single customer should exceed 10% of total revenue
+4. **Investigate Mobile Returns** : Escalate to product team for quality or expectation review
+5. **Protect Q4 Pipeline** : Start pipeline building in August every year
+6. **Monitor Weekly** : Executive Summary reviewed every Monday, Sales Performance every Friday
 
 ---
 
@@ -467,7 +467,7 @@ RETURN IF(yr1 <> 0, POWER(DIVIDE(yr3, yr1, 0), 1/2) - 1, BLANK())
 
 ## 👤 Author
 
-**Mritunjay**
+**Mritunjay Pandey**
 MCA Semester II
 Aryabhatta Knowledge University, Patna
 
