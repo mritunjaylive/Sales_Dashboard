@@ -468,8 +468,8 @@ RETURN IF(yr1 <> 0, POWER(DIVIDE(yr3, yr1, 0), 1/2) - 1, BLANK())
 ## 👤 Author
 
 **Mritunjay Pandey**
-MCA Semester II
-Aryabhatta Knowledge University, Patna
+- MCA Semester II
+- Aryabhatta Knowledge University, Patna
 
 ---
 
